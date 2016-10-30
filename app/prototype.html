@@ -6,9 +6,13 @@
 	<script data-main="./scripts/prot" src="../bower_components/requirejs/require.js" defer async="true"></script>
 </head>
 <body>
-	<div>Test</div>
+	<div id="test">Test</div>
 	<script>
 		window.onload = function(){
+			let test = window.document.getElementById("test");
+			test.addEventListener("mousedown", function(e){
+				console.log(test.style.cursor);
+			},false);
 
 		}
 
