@@ -5,6 +5,27 @@
 	<title>Array-Merge</title>
 </head>
 <body>
-	
+	<div id ="box"></div>
+	<script type="text/javascript">
+
+		window.onload = function(){
+			var arr = [1,3,[4,5],[7,6,[9,10,11]]];
+			var res = [];
+			mergeArr(arr,res)
+			window.document.getElementById("box").innerHTML = res.toString();
+			console.log(res);
+		};
+		function mergeArr(arr,res){
+			var arrList = arr.slice(0);
+			for (let i = 0; i < arrList.length; i++){
+				if(typeof arrList[i] === "number"){
+					res.push(arrList[i]);
+				}
+				else{
+					mergeArr(arrList[i], res);
+				}
+			}
+		}
+	</script>
 </body>
 </html>
