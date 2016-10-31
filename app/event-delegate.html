@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event Delegate</title>
+	<style>
+		#ul li{
+			height: 50px;
+		}
+		a{
+			text-decoration: none;
+		}
+		span{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<ul id="ul">
+		<li><a href="javascript:void(0);">1</a></li>
+		<li><a href="javascript:void(0);"><span>2</span></a></li>
+		<li><a href="javascript:void(0);"><span><span>3</span></span></a></li>
+		<li><span><span><span>4</span></span></span></li>
+		<li><span><span>5</span>　<span>6</span></span></li>
+	</ul>
+	<script type = "text/javascript">
+		window.onload = function () {
+			var oUl = document.getElementById("ul");
+			oUl.addEventListener("click" ,function(e){
+				var e = e || window.event;
+				var target = e.target || e.srcElement;
+				// 判断条件 如果target不是li target为它本身的父节点
+				while(target.nodeName.toLowerCase() !== "li"){
+					target = target.parentNode;
+				}
+				//cosole.log(target.innerHTML);
+				target.style.background = "skyblue";
+			}, false);
+		}
+	</script>
+</body>
+</html>
