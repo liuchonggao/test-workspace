@@ -1,4 +1,6 @@
 {
+  
+  "name": "test",	
   "private": true,
   "engines": {
     "node": ">=4"
